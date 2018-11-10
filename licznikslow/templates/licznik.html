@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Licznik</title>
+  </head>
+  <body>
+    <h1>licznikslow</h1>
+    <form action="{% url 'home' %}">
+    <input type="submit" value="Nowy teks" />
+</form>
+  <br/>
+    Jest {{ slowa }} znaków
+    <br/>
+    Jest {{ wyrazy }} wyrazów
+    <br/>
+    <br/>
+
+
+    {% for wyraz, przelicz in posortowane %}
+    <br/>
+
+    {{ wyraz }} : {{ przelicz }}
+
+    {% endfor %}
+  </body>
+</html>
