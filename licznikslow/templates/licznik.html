@@ -2,26 +2,82 @@
 <html lang="pl" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Licznik</title>
+    <title>Licznik słów</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/licznikslow.css' %}">
   </head>
   <body>
-    <h1>licznik slow</h1>
-    <form action="{% url 'home' %}">
-    <input type="submit" value="Nowy tekst" />
+
+<div class="container">
+
+
+    <div class="bs-docs-section">
+
+
+
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="jumbotron">
+        <h1>  <div class="display-3">
+            Licznik słów
+          </div></h1>
+          <p class="lead">Wynik analizy twojego tekstu:</p>
+
+
+        <br/>
+  <hr class="my-4">
+
+  <table class="table table-hover">
+
+<tbody>
+
+
+    <table class="table table-hover">
+        <tr class="table-danger">
+             <th scope="row">Ilość znaków w tekście</th>
+             <td> {{ slowa }} </td>
+           </tr>
+     <tr class="table-danger">
+           <th scope="row">Ilość wyrazów w tekscie</th>
+           <td>{{ wyrazy }}</td>
+
+         </tr>
+</tbody>
+</table>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Słowo </th>
+                <th scope="col">ilośc wystąpień</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+
+
+          {% for wyraz, przelicz in posortowane %}
+
+          <tr class="table-info">
+               <th scope="row">{{ wyraz }}</th>
+               <td>{{ przelicz }}</td>
+
+             </tr>
+
+          {% endfor %}
+
+        </tbody>
+        </table>
+<form action="{% url 'home' %}">
+  <input type="submit" class="btn btn-warning" value="Przeanalizuj nowy tekst" style="float: right;" />
 </form>
-  <br/>
-    Jest {{ slowa }} znaków
-    <br/>
-    Jest {{ wyrazy }} wyrazów
-    <br/>
-    <br/>
+        </div>
 
+      </div>
 
-    {% for wyraz, przelicz in posortowane %}
-    <br/>
-
-    {{ wyraz }} : {{ przelicz }}
-
-    {% endfor %}
+    </div>
+</div>
+  </div>
   </body>
 </html>
