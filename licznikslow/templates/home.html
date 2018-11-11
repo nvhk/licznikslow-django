@@ -1,54 +1,39 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>licznik slow</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/licznikslow.css' %}">
-  </head>
-  <body>
-    <div class="container">
 
+<head>
+  <meta charset="utf-8">
+  <title>licznik slow</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/licznikslow.css' %}">
+</head>
 
-        <div class="bs-docs-section">
+<body>
+  <div class="container">
+    <div class="bs-docs-section">
+      <div class="col-lg-12">
+        <div class="bs-component">
+          <div class="jumbotron">
+            <h1 class="display-3">Licznik słów</h1>
+            <p class="lead">Wpisz tekst aby wyświetlić: ilość wyrazów, ilośc znaków, oraz ilość częstotliwość występowania danego słowa w tekscie. </p>
+            <hr class="my-4">
+            <form action="licznik">
+              <div class="form-group">
+                <textarea class="form-control" name="slowa" rows="10" cols="80"></textarea>
+                <br>
+                <input type="submit" class="btn btn-success" value="Analizuj tekst" style="float: right;">
+            </form>
+            </p>
+          </div>
+        </div>
 
-
-
-        <div class="col-lg-12">
-          <div class="bs-component">
-
-
-    <div class="jumbotron">
-      <h1 class="display-3">Licznik słów</h1>
-      <p class="lead">Wpisz tekst aby wyświetlić: ilość wyrazów, ilośc znaków, oraz ilość częstotliwość występowania danego słowa w tekscie. </p>
-      <hr class="my-4">
-
-      <form action="licznik">
-      <div class="form-group">
-
-
-
-
-      <textarea class="form-control" name="slowa" rows="10" cols="80"></textarea>
-      <br>
-      <input type="submit" class="btn btn-success" value="Analizuj tekst" style="float: right;">
-      </form>
-
-
-      </p>
+        <form action="{% url 'about' %}">
+          <input type="submit" class="btn btn-outline-danger" value="About" style="float: right;" />
+      </div>
     </div>
-</div>
-
-<form action="{% url 'about' %}">
-<input type="submit" class="btn btn-outline-danger" value="About" style="float: right;" />
-
-
   </div>
+  </div>
+  </form>
+</body>
 
-</div>
-
-</div>
-</div>
-</form>
-  </body>
 </html>
